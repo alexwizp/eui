@@ -733,14 +733,6 @@ export const EuiFlyoutComponent = forwardRef(
             onAnimationEnd={onAnimationEnd}
           >
             {!isPushed && screenReaderDescription}
-            {!_flyoutMenuProps && !hideCloseButton && (
-              <EuiFlyoutCloseButton
-                {...closeButtonProps}
-                onClose={onClose}
-                closeButtonPosition={closeButtonPosition}
-                side={side}
-              />
-            )}
             {_flyoutMenuProps && (
               <EuiFlyoutMenu
                 {...flyoutMenuProps}
@@ -760,6 +752,14 @@ export const EuiFlyoutComponent = forwardRef(
               />
             )}
             <EuiFlyoutParentProvider>{children}</EuiFlyoutParentProvider>
+            {!_flyoutMenuProps && !hideCloseButton && (
+              <EuiFlyoutCloseButton
+                {...closeButtonProps}
+                onClose={onClose}
+                closeButtonPosition={closeButtonPosition}
+                side={side}
+              />
+            )}
           </Element>
         </EuiFocusTrap>
       </EuiFlyoutOverlay>
